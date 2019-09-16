@@ -1,0 +1,15 @@
+{
+  "name": "league-table",
+  "version": "1.0.0",
+  "description": "An app that displays the Premier League table from the 2016/2017 season.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Darren Keen",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  }
+}
