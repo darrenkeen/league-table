@@ -1,7 +1,33 @@
 {
-  "extends": ["tslint:latest", "tslint-config-prettier"],
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "src/**/*.d.ts"
+    ]
+  },
   "rules": {
-    "indent": [true, "spaces", 2],
-    "max-line-length": [true, 50]
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
+    "max-line-length": [
+      true,
+      50
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "quotemark": [
+      true,
+      "single"
+    ]
   }
 }

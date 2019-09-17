@@ -1,3 +1,3 @@
-const foo: string = "Darren";
+const foo: string = 'Darren';
 
-console.log(foo);
+document.write(foo);

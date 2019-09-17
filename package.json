@@ -4,17 +4,26 @@
   "description": "An app that displays the Premier League table from the 2016/2017 season.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --hot --config ./config/webpack/webpack.config.js"
   },
   "keywords": [],
   "author": "Darren Keen",
   "license": "ISC",
   "devDependencies": {
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "ts-loader": "^6.1.0",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.6.3",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0"
   }
 }
