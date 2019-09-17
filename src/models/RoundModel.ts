@@ -1,6 +1,6 @@
-import { IMatchModel } from './MatchModel';
+import { IMatch } from './MatchModel';
 
-export interface IRoundModel {
+export interface IRound {
   name: string;
-  matches: IMatchModel[];
+  matches: IMatch[];
 }

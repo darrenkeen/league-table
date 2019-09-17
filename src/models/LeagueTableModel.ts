@@ -1,6 +1,7 @@
-import { IRoundModel } from './RoundModel';
+import { IRound } from './RoundModel';
 
-export interface ILeagueTableModel {
+// TODO: Needed?
+export interface ILeagueTableDTO {
   name: string;
-  rounds: IRoundModel[];
+  rounds: IRound[];
 }

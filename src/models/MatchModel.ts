@@ -1,9 +1,9 @@
-import { ITeamModel } from './TeamModel';
+import { ITeam } from './TeamModel';
 
-export interface IMatchModel {
+export interface IMatch {
   date: string;
-  team1: ITeamModel;
-  team2: ITeamModel;
+  team1: ITeam;
+  team2: ITeam;
   score1: number;
   score2: number;
 }
