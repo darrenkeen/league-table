@@ -12,6 +12,7 @@ const calculateResult = (scoreFor: number, scoreAgainst: number) => {
 const saveTeamsResult = (currentTeam: ITeamMatchStats) => {
   const teamInArray = teamStats.findIndex((team: ITeamStats) => team.code === currentTeam.code);
   if (teamInArray > -1) {
+    //TODO: Use dictionary
     const existingTeam = teamStats[teamInArray];
     teamStats[teamInArray] = {
       ...existingTeam,
