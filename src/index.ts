@@ -1,6 +1,7 @@
 import { IMatchModel } from '~/models/MatchModel';
 import { IRoundModel } from '~/models/RoundModel';
 import * as data from './json/data.json';
+import { tableHTML } from './templates/table';
 
 interface ITeamStats {
   code: string;
@@ -101,4 +102,41 @@ data.rounds.forEach((round: IRoundModel) => {
   })
 });
 
+teamStats.sort((firstTeam, secondTeam) => {
+  if (firstTeam.points < secondTeam.points) {
+    return 1
+  }
+  if (firstTeam.points > secondTeam.points) {
+    return -1
+  }
+  if ((firstTeam.scored - firstTeam.conceded) < (secondTeam.scored - secondTeam.conceded)) {
+    return 1
+  }
+  if ((firstTeam.scored - firstTeam.conceded) > (secondTeam.scored - secondTeam.conceded)) {
+    return -1
+  }
+  if (firstTeam.scored < secondTeam.scored) {
+    return 1
+  }
+});
 
+const tableRowsHTML = () => {
+  let rows: string = '';
+  teamStats.forEach((team: ITeamStats, index) => {
+    rows += `<tr>
+      <td>${index + 1}</td>
+      <td>${team.name}</td>
+      <td>${team.form.length}</td>
+      <td>${team.winCount}</td>
+      <td>${team.drawCount}</td>
+      <td>${team.loseCount}</td>
+      <td>${team.scored}</td>
+      <td>${team.conceded}</td>
+      <td>${team.scored - team.conceded}</td>
+      <td>${team.points}</td>
+    </tr>`;
+  });
+  return rows;
+};
+
+document.getElementById('app').innerHTML = tableHTML(tableRowsHTML());
