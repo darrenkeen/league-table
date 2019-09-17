@@ -28,6 +28,12 @@
     "quotemark": [
       true,
       "single"
-    ]
+    ],
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": [
+      true,
+      "~"
+    ],
+    "object-literal-sort-keys": false
   }
 }
