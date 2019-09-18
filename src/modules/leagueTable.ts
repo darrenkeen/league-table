@@ -1,4 +1,4 @@
-import * as data from '~/json/data.json';
+import  data from '~/json/data.json';
 
 import { IMatch } from '~/models/MatchModel';
 import { IRound } from '~/models/RoundModel';
@@ -15,8 +15,7 @@ import {
   calculateGoalDifference,
 } from '~/utils';
 
-
-const parseTeamsInMatchReducer = (accum: ITeamMatchStats[], match: IMatch) => {
+export const parseTeamsInMatchReducer = (accum: ITeamMatchStats[], match: IMatch) => {
   return accum.concat([{
     name: match.team1.name,
     code: match.team1.code,
@@ -32,10 +31,10 @@ const parseTeamsInMatchReducer = (accum: ITeamMatchStats[], match: IMatch) => {
   }]);
 };
 
-const getAllTeamsInRoundReducer = (allTeamsInRound: ITeamMatchStats[], team: ITeamMatchStats) =>
+export const getAllTeamsInRoundReducer = (allTeamsInRound: ITeamMatchStats[], team: ITeamMatchStats) =>
   allTeamsInRound.concat(team);
 
-export const allFixturesInAllRounds = data.rounds.reduce((accum: ITeamMatchStats[], round: IRound) => {
+export const allFixturesInAllRounds: ITeamMatchStats[] = data.rounds.reduce((accum: ITeamMatchStats[], round: IRound) => {
   const allTeamsInRound: ITeamMatchStats[] = round.matches
     .reduce(parseTeamsInMatchReducer, [])
     .reduce(getAllTeamsInRoundReducer, []);
@@ -65,12 +64,12 @@ export const allTeamsStats: { [key: string]: ITeamStats } =
     return allTeams;
   }, {});
 
-export const getSortedTeamStats = (): ITeamStats[] => {
-  return Object.values(allTeamsStats).sort((teamA: ITeamStats, teamB: ITeamStats): 1 | -1 | 0 => {
+export const getSortedTeamStats = (teams: { [key: string]: ITeamStats }): ITeamStats[] => {
+  return Object.values(teams).sort((teamA: ITeamStats, teamB: ITeamStats): 1 | -1 | 0 => {
     if (sortByPoints(teamA.points, teamB.points) !== 0) {
       return sortByPoints(teamA.points, teamB.points);
     }
-    if (sortByGoalDifference(calculateGoalDifference(teamA), calculateGoalDifference(teamB)) ! == 0) {
+    if (sortByGoalDifference(calculateGoalDifference(teamA), calculateGoalDifference(teamB)) !== 0) {
       return sortByGoalDifference(calculateGoalDifference(teamA), calculateGoalDifference(teamB));
     }
 
@@ -79,3 +78,4 @@ export const getSortedTeamStats = (): ITeamStats[] => {
     }
   });
 };
+

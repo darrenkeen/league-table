@@ -7,48 +7,14 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt')
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 // Add eslint
-const isProduction = typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production';
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => {
-  console.log(appDirectory, relativePath);
-  console.log(path.resolve(appDirectory, relativePath));
-  return path.resolve(appDirectory, relativePath);
-};
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 // Add build option
-module.exports = [
+module.exports =
   {
     entry: resolveApp('src/index'),
     target: 'web',
-    mode: isProduction ? 'production' : 'development',
-    devtool: isProduction ? false : 'inline-source-map',
-    module: {
-      rules: [
-        {
-          test: /\.tsx?$/,
-          exclude: [
-            /node_modules/,
-            /\.(test|spec).tsx?$/,
-          ],
-          use: [
-            {
-              loader: "babel-loader?cacheDirectory",
-              options: {
-                extends: resolveApp('.babelrc'),
-              },
-            },
-            {
-              loader: "ts-loader",
-              options: {
-                allowTsInNodeModules: true,
-                happyPackMode: !isProduction,
-                configFile: resolveApp('tsconfig.json'),
-              },
-            },
-          ],
-        },
-      ],
-    },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
       alias: {
@@ -87,5 +53,4 @@ module.exports = [
       filename: 'app.js',
       path: path.resolve(__dirname, '../../dist'),
     },
-  },
-];
+  };

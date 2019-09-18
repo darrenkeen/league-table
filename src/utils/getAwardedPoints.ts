@@ -1,12 +1,18 @@
 import { ResultTypeEnum } from '~/models/ResultTypeEnum';
 
+export enum ResultTypePointsEnum {
+  Win = 3,
+  Draw = 1,
+  Lose = 0,
+}
+
 export const getAwardedPoints = (result: ResultTypeEnum): number => {
   switch (result) {
     case ResultTypeEnum.Win:
-      return 3;
+      return ResultTypePointsEnum.Win;
     case ResultTypeEnum.Draw:
-      return 1;
+      return ResultTypePointsEnum.Draw;
     default:
-      return 0;
+      return ResultTypePointsEnum.Lose;
   }
 };
