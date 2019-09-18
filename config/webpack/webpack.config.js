@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
+// Add eslint
 const isProduction = typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production';
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => {
@@ -14,6 +15,7 @@ const resolveApp = relativePath => {
   return path.resolve(appDirectory, relativePath);
 };
 
+// Add build option
 module.exports = [
   {
     entry: resolveApp('src/index'),

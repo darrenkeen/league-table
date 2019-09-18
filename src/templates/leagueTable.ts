@@ -1,4 +1,4 @@
-export const tableHTML = (rows: string) => `
+export const leagueTableHTML = (rows: string) => `
   <table>
     <thead>
       <th>#</th>
