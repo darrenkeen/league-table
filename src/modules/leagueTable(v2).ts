@@ -1,6 +1,6 @@
-import * as data from '../json/data.json';
+import * as data from 'json/data.json';
 
-import { IMatch, IMatchTeamsStats, IRound, ITeamMatchStats, ITeamStats, WinTypeEnum } from '~/models';
+import { IMatch, IMatchTeamsStats, IRound, ITeamMatchStats, ITeamStats, ResultTypeEnum } from '~/models';
 import {
   calculateResult,
   sortByGoalsScored,
@@ -16,40 +16,40 @@ interface ILeagueTable {
   getSortedTeamStats: () => ITeamStats[];
 }
 
-export const leagueTable:ILeagueTable = {
+export const leagueTableV2:ILeagueTable = {
   teamStats: {},
   addTeamStats: (currentTeam: ITeamMatchStats): void => {
-    const teamInArray = leagueTable.teamStats[currentTeam.code];
+    const teamInArray = leagueTableV2.teamStats[currentTeam.code];
     const { code } = currentTeam;
 
     if (teamInArray) {
-      const existingTeam = leagueTable.teamStats[code];
-      leagueTable.teamStats[code] = {
+      const existingTeam = leagueTableV2.teamStats[code];
+      leagueTableV2.teamStats[code] = {
         ...existingTeam,
         scored: existingTeam.scored + currentTeam.scored,
         conceded: existingTeam.conceded + currentTeam.conceded,
         points: existingTeam.points + getAwardedPoints(currentTeam.result),
-        winCount: existingTeam.winCount + (currentTeam.result === WinTypeEnum.Win ? 1 : 0),
-        drawCount: existingTeam.drawCount + (currentTeam.result === WinTypeEnum.Draw ? 1 : 0),
-        loseCount: existingTeam.loseCount + (currentTeam.result === WinTypeEnum.Lose ? 1 : 0),
+        winCount: existingTeam.winCount + (currentTeam.result === ResultTypeEnum.Win ? 1 : 0),
+        drawCount: existingTeam.drawCount + (currentTeam.result === ResultTypeEnum.Draw ? 1 : 0),
+        loseCount: existingTeam.loseCount + (currentTeam.result === ResultTypeEnum.Lose ? 1 : 0),
         form: [...existingTeam.form, currentTeam.result],
       };
     } else {
       const { name, scored, conceded, result } = currentTeam;
-      leagueTable.teamStats[code] = {
+      leagueTableV2.teamStats[code] = {
         name,
         scored,
         conceded,
         points: getAwardedPoints(result),
-        winCount: (result === WinTypeEnum.Win ? 1 : 0),
-        drawCount: (result === WinTypeEnum.Draw ? 1 : 0),
-        loseCount: (result === WinTypeEnum.Lose ? 1 : 0),
+        winCount: (result === ResultTypeEnum.Win ? 1 : 0),
+        drawCount: (result === ResultTypeEnum.Draw ? 1 : 0),
+        loseCount: (result === ResultTypeEnum.Lose ? 1 : 0),
         form: [result],
       };
     }
   },
   getSortedTeamStats: () => {
-    return Object.values(leagueTable.teamStats).sort((teamA: ITeamStats, teamB: ITeamStats): 1 | -1 => {
+    return Object.values(leagueTableV2.teamStats).sort((teamA: ITeamStats, teamB: ITeamStats): 1 | -1 => {
       if (sortByPoints(teamA.points, teamB.points)) {
         return sortByPoints(teamA.points, teamB.points);
       }
@@ -84,6 +84,6 @@ data.rounds.forEach((round: IRound) => {
   }));
 
   parsedMatches.forEach((match: IMatchTeamsStats) => {
-    match.teams.forEach((team: ITeamMatchStats) => leagueTable.addTeamStats(team));
+    match.teams.forEach((team: ITeamMatchStats) => leagueTableV2.addTeamStats(team));
   });
 });

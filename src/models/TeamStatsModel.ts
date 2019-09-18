@@ -1,4 +1,4 @@
-import { WinTypeEnum } from './WinTypeEnum';
+import { ResultTypeEnum } from './ResultTypeEnum';
 
 export interface ITeamStats {
   name: string;
@@ -8,5 +8,16 @@ export interface ITeamStats {
   scored: number;
   conceded: number;
   points: number;
-  form: WinTypeEnum[];
+  form: ResultTypeEnum[];
 }
+
+export const INITIAL_TEAM_STATS: ITeamStats = {
+  name: '',
+  winCount: 0,
+  loseCount: 0,
+  drawCount:0,
+  scored: 0,
+  conceded: 0,
+  points: 0,
+  form: [],
+};

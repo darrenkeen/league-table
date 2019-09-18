@@ -1,10 +1,10 @@
-import { WinTypeEnum } from '~/models';
+import { ResultTypeEnum } from '~/models/ResultTypeEnum';
 
-export const getAwardedPoints = (result: WinTypeEnum): number => {
+export const getAwardedPoints = (result: ResultTypeEnum): number => {
   switch (result) {
-    case WinTypeEnum.Win:
+    case ResultTypeEnum.Win:
       return 3;
-    case WinTypeEnum.Draw:
+    case ResultTypeEnum.Draw:
       return 1;
     default:
       return 0;

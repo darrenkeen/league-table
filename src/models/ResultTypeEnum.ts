@@ -1,4 +1,4 @@
-export const enum WinTypeEnum {
+export const enum ResultTypeEnum {
   Win = 'W',
   Lose = 'L',
   Draw = 'D',

@@ -1,4 +1,4 @@
-import { ITeamStats } from '~/models';
+import { ITeamStats } from '~/models/TeamStatsModel';
 
 export const leagueTableRowHTML = (team: ITeamStats, position: number) => `
   <tr>
