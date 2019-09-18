@@ -65,7 +65,6 @@
 //   },
 // };
 //
-// // TODO: REDUCE?
 // data.rounds.forEach((round: IRound) => {
 //   const parsedMatches: IMatchTeamsStats[] = round.matches.map((match: IMatch) => ({
 //     teams: [{
