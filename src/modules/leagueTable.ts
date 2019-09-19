@@ -1,4 +1,4 @@
-import  data from '~/json/data.json';
+import data from '~/json/data.json';
 
 import { IMatch } from '~/models/MatchModel';
 import { IRound } from '~/models/RoundModel';
@@ -34,14 +34,15 @@ export const parseTeamsInMatchReducer = (accum: ITeamMatchStats[], match: IMatch
 export const getAllTeamsInRoundReducer = (allTeamsInRound: ITeamMatchStats[], team: ITeamMatchStats) =>
   allTeamsInRound.concat(team);
 
-export const allFixturesInAllRounds: ITeamMatchStats[] = data.rounds.reduce((accum: ITeamMatchStats[], round: IRound) => {
-  const allTeamsInRound: ITeamMatchStats[] = round.matches
-    .reduce(parseTeamsInMatchReducer, [])
-    .reduce(getAllTeamsInRoundReducer, []);
+export const allFixturesInAllRounds: ITeamMatchStats[] =
+  data.rounds.reduce((accum: ITeamMatchStats[], round: IRound) => {
+    const allTeamsInRound: ITeamMatchStats[] = round.matches
+      .reduce(parseTeamsInMatchReducer, [])
+      .reduce(getAllTeamsInRoundReducer, []);
 
-  return accum.concat(allTeamsInRound);
+    return accum.concat(allTeamsInRound);
 
-}, []);
+  }, []);
 
 export const allTeamsStats: { [key: string]: ITeamStats } =
   allFixturesInAllRounds.reduce((allTeams: { [key: string]: ITeamStats }, fixture: ITeamMatchStats) => {

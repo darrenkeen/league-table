@@ -1,13 +1,10 @@
 import { ITeamStats } from '~/models/TeamStatsModel';
-import { leagueTableRowHTML, leagueTableHTML } from '~/templates';
-import { allTeamsStats, getSortedTeamStats } from './leagueTable';
+import { leagueTableRowHTML } from '~/templates';
 
-export const tableRowsHTML = (teamStats: { [key: string]: ITeamStats }) => {
+export const tableRowsHTML = (teams: ITeamStats[]) => {
   let rows: string = '';
-  getSortedTeamStats(teamStats).forEach((team: ITeamStats, index: number) => {
+  teams.forEach((team: ITeamStats, index: number) => {
     rows += leagueTableRowHTML(team, index + 1);
   });
   return rows;
 };
-
-document.getElementById('app').innerHTML = leagueTableHTML(tableRowsHTML(allTeamsStats));

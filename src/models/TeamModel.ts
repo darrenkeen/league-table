@@ -1,5 +1,5 @@
 export interface ITeam {
-  key: string
-  name: string,
-  code: string
+  key: string;
+  name: string;
+  code: string;
 }

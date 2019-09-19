@@ -1,5 +1,7 @@
+import './leagueTable.scss';
+
 export const leagueTableHTML = (rows: string) => `
-  <table>
+  <table class="league-table">
     <thead>
       <th>#</th>
       <th>Team</th>
@@ -12,7 +14,7 @@ export const leagueTableHTML = (rows: string) => `
       <th>GD</th>
       <th>Points</th>
     </thead>
-    <tbody class="league-table__body">
+    <tbody>
       ${rows}
     </tbody>
   </table>

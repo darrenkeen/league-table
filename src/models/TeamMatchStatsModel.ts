@@ -5,5 +5,5 @@ export interface ITeamMatchStats {
   name: string;
   scored: number;
   conceded: number;
-  result: ResultTypeEnum
+  result: ResultTypeEnum;
 }

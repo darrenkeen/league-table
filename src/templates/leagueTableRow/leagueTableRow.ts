@@ -1,7 +1,6 @@
 import { ITeamStats } from '~/models/TeamStatsModel';
 
-export const leagueTableRowHTML = (team: ITeamStats, position: number) => `
-  <tr>
+export const leagueTableRowHTML = (team: ITeamStats, position: number) => `<tr>
     <td>${position}</td>
     <td>${team.name}</td>
     <td>${team.form.length}</td>
@@ -12,5 +11,4 @@ export const leagueTableRowHTML = (team: ITeamStats, position: number) => `
     <td>${team.conceded}</td>
     <td>${team.scored - team.conceded}</td>
     <td>${team.points}</td>
-  </tr>
-`;
+  </tr>`;

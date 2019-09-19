@@ -1,2 +1,4 @@
-export { leagueTableHTML } from './leagueTable';
-export { leagueTableRowHTML } from './leagueTableRow';
+export * from './leagueTable';
+export * from './leagueTableRow';
+export * from './header';
+export * from './footer';
