@@ -29,6 +29,7 @@ module.exports = {
     "\\.css": "<rootDir>/jest/fileMock.js",
     "\\.sass": "<rootDir>/jest/fileMock.js",
     "\\.svg": "<rootDir>/jest/fileMock.js",
+    "\\.png": "<rootDir>/jest/fileMock.js",
     "^~([^\/]+.*)": "<rootDir>/src/modules/$1",
     "^~\/(.*)": "<rootDir>/src/$1",
   },
