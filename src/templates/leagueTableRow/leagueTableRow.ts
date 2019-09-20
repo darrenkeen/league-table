@@ -1,4 +1,5 @@
 import { ITeamStats } from '~/models/TeamStatsModel';
+import { renderForm } from '~/utils';
 
 export const leagueTableRowHTML = (team: ITeamStats, position: number) => `<tr>
     <td>${position}</td>
@@ -11,4 +12,5 @@ export const leagueTableRowHTML = (team: ITeamStats, position: number) => `<tr>
     <td>${team.conceded}</td>
     <td>${team.scored - team.conceded}</td>
     <td>${team.points}</td>
+    <td>${renderForm(team.form, 5)}</td>
   </tr>`;

@@ -5,7 +5,6 @@ export const sortByPoints = (pointsTeamA: number, pointsTeamB: number): 1 | -1 |
   if (pointsTeamA > pointsTeamB) {
     return -1;
   }
-  // TODO: How to get around issue where returning in sort cant return 'void'
   return 0;
 };
 
@@ -16,7 +15,6 @@ export const sortByGoalDifference = (goalDifferenceTeamA: number, goalDifference
   if (goalDifferenceTeamA > goalDifferenceTeamB) {
     return -1;
   }
-  // TODO: How to get around issue where returning in sort cant return 'void'
   return 0;
 };
 
@@ -27,6 +25,5 @@ export const sortByGoalsScored = (goalsScoredTeamA: number, goalsScoredTeamB: nu
   if (goalsScoredTeamA > goalsScoredTeamB) {
     return -1;
   }
-  // TODO: How to get around issue where returning in sort cant return 'void'
   return 0;
 };

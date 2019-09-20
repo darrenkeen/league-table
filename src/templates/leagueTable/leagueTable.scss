@@ -3,6 +3,7 @@
   max-width: 50rem;
   margin: 0 auto 1rem;
   border-collapse: collapse;
+  border: 1px solid #28002d;
 
   th {
     background-color: #28002d;
@@ -11,6 +12,10 @@
 
     &:nth-child(2) {
       text-align: left;
+    }
+
+    &:last-child {
+      text-align: right;
     }
   }
 
@@ -25,6 +30,38 @@
 
       &:nth-child(2) {
         text-align: left;
+      }
+
+      &:last-child {
+        text-align: right;
+      }
+
+      span.form-block {
+        &--W,
+        &--D,
+        &--L {
+          display: inline-block;
+          height: 1rem;
+          width: 1rem;
+          padding: 0.125rem;
+          margin-right: 0.125rem;
+          color: #FFFFFF;
+          font-size: 0.75rem;
+          text-align: center;
+        }
+
+        &--W {
+          background: #007d00;
+        }
+
+        &--D {
+          background: #bebebe;
+          color: #000000;
+        }
+
+        &--L {
+          background: #7d0900;
+        }
       }
     }
 

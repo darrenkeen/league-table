@@ -60,6 +60,7 @@ describe('calculateGoalDifference()', () => {
     <td>0</td>
     <td>3</td>
     <td>4</td>
+    <td><span class="form-block--W">W</span><span class="form-block--D">D</span></td>
   </tr><tr>
     <td>2</td>
     <td>Second</td>
@@ -71,6 +72,7 @@ describe('calculateGoalDifference()', () => {
     <td>2</td>
     <td>1</td>
     <td>4</td>
+    <td><span class="form-block--W">W</span><span class="form-block--D">D</span></td>
   </tr><tr>
     <td>3</td>
     <td>Third</td>
@@ -82,6 +84,7 @@ describe('calculateGoalDifference()', () => {
     <td>1</td>
     <td>1</td>
     <td>4</td>
+    <td><span class="form-block--W">W</span><span class="form-block--D">D</span></td>
   </tr><tr>
     <td>4</td>
     <td>Fourth</td>
@@ -93,6 +96,7 @@ describe('calculateGoalDifference()', () => {
     <td>3</td>
     <td>-1</td>
     <td>1</td>
+    <td><span class="form-block--L">L</span><span class="form-block--D">D</span></td>
   </tr>`;
 
     expect(tableRowsHTML(teamStats).trim()).toEqual(outputHTML.trim());

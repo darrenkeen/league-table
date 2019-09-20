@@ -13,6 +13,7 @@ export const leagueTableHTML = (rows: string) => `
       <th>GC</th>
       <th>GD</th>
       <th>Points</th>
+      <th>Form</th>
     </thead>
     <tbody>
       ${rows}

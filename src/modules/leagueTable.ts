@@ -35,14 +35,12 @@ export const getAllTeamsInRoundReducer = (allTeamsInRound: ITeamMatchStats[], te
   allTeamsInRound.concat(team);
 
 export const allFixturesInAllRounds: ITeamMatchStats[] =
-  data.rounds.reduce((accum: ITeamMatchStats[], round: IRound) => {
-    const allTeamsInRound: ITeamMatchStats[] = round.matches
+  data.rounds.reduce((accum: ITeamMatchStats[], round: IRound) => [
+    ...accum,
+    ...round.matches
       .reduce(parseTeamsInMatchReducer, [])
-      .reduce(getAllTeamsInRoundReducer, []);
-
-    return accum.concat(allTeamsInRound);
-
-  }, []);
+      .reduce(getAllTeamsInRoundReducer, []),
+  ], []);
 
 export const allTeamsStats: { [key: string]: ITeamStats } =
   allFixturesInAllRounds.reduce((allTeams: { [key: string]: ITeamStats }, fixture: ITeamMatchStats) => {
