@@ -50,36 +50,14 @@ module.exports = merge(common,
           ],
         },
         {
-          test: /\.css$/,
-          use: [{ loader: MiniCssExtractPlugin.loader }, { loader: "css-loader" }],
-        },
-        {
-          test: /\.(sass|scss)$/,
+          test: /\.s[ac]ss$/i,
           use: [
-            { loader: MiniCssExtractPlugin.loader },
-            { loader: "css-modules-simple-types-loader" },
-            {
-              loader: "css-loader",
-              options: {
-                modules: "local",
-                import: false,
-                localIdentName: "[name]_[local]_[hash:base64:5]",
-              },
-            },
-            {
-              loader: "postcss-loader",
-              options: {
-                config: {
-                  path: path.resolve(__dirname, "../../postcss.config.js"),
-                },
-              },
-            },
-            {
-              loader: "sass-loader",
-              options: {
-                sourceMap: true,
-              },
-            },
+            // Creates `style` nodes from JS strings
+            'style-loader',
+            // Translates CSS into CommonJS
+            'css-loader',
+            // Compiles Sass to CSS
+            'sass-loader',
           ],
         },
       ],
