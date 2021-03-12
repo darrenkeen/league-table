@@ -39,7 +39,7 @@
     "postcss-css-reset": "^1.0.2",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
-    "react-dev-utils": "^9.0.3",
+    "react-dev-utils": "^11.0.4",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "stylelint": "^11.0.0",
